@@ -1,0 +1,20 @@
+{
+    "name": "techdriven/module-blog",
+    "description": "very simple blog (only frontend implementation) to understand Magento workflow",
+    "type": "magento2-module",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "~7.4.0||~8.1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Techdriven\\Blog\\": ""
+        }
+    }
+}
+
