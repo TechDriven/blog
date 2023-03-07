@@ -4,22 +4,19 @@ declare(strict_types=1);
 namespace Techdriven\Blog\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\View\Result\Page;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\Result\Forward;
+use Magento\Framework\Controller\Result\ForwardFactory;
 
 class Index implements HttpGetActionInterface
 {
-    /** @var PageFactory */
-    private $pageFactory;
     public function __construct(
-        PageFactory $pageFactory
+        private ForwardFactory $forwardFactory,
     ) {
-        $this->pageFactory = $pageFactory;
     }
-    public function execute(): Page
+    public function execute(): Forward
     {
-        die("blog index");
-        return $this->pageFactory->create();
+        /** @var Forward $forward */
+        $forward = $this->forwardFactory->create();
+        return $forward->setController('post')->forward('list');
     }
 }
-
