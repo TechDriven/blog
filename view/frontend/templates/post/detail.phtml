@@ -1,5 +1,11 @@
+<?php /* @var Magento\Framework\View\Element\Template $block */
+/** @var Magento\Framework\Escaper $escaper */
+/** @var Techdriven\Blog\ViewModel\Post $postVm */
+$postVm = $block->getData('post_vm');
+$post = $postVm->getDetail();
+?>
 <div class="blog-post-list">
-    <h1><?= __('Title') ?></h1>
-    <p><em><?= __('Created at: %1', '01-01-2023') ?></em></p>
-    <p><?= __('This is some content.') ?></p>
+    <h1><?= $escaper->escapeHtml($post->getTitle()) ?></h1>
+    <p><em><?= __('Created at: %1', $post->getCreatedAt()) ?></em></p>
+    <p><?= $escaper->escapeHtml($post->getContent(), ['em', 'p', 'strong']) ?></p>
 </div>
