@@ -2,7 +2,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="blog.post.list" template="Techdriven_Blog::post/list.phtml"/>
+            <block name="blog.post.list" template="Techdriven_Blog::post/list.phtml">
+                <arguments>
+                    <argument name="post_vm" xsi:type="object">Techdriven\Blog\ViewModel\Post</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
